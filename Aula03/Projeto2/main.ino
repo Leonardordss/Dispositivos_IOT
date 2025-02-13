@@ -36,4 +36,18 @@ void loop(){
     garage_sensor = digitalRead(GARAGE_SENSOR_PIN);
     hall_sensor = digitalRead(HALL_SENSOR_PIN);
     digitalWrite(ALARM_PIN, alarm);
+
+    if(onButton == 1){
+        if(!bar_sensor || !window1_sensor || !window2_sensor || room_sensor || kitchen_sensor || garage_sensor || hall_sensor){
+            alarm = 1;
+        }
+        else{
+            alarm = 0;
+        }
+
+    }
+    //Se o botão de ligar não estiver pressionado:
+    else{
+        alarm = 0;
+    }
 }
