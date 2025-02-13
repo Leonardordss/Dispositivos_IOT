@@ -8,13 +8,13 @@
 #define HALL_SENSOR_PIN 7
 #define ALARM_PIN 8
 
-bool onButton = 0, bar_sensor = 0, window1_sensor = 0;
-bool window2_sensor = 0, room_sensor = 0, kitchen_sensor = 0;
-bool garage_sensor = 0, hall_sensor = 0, alarm = 0;
+bool onButton = 0, barSensor = 0, window1Sensor = 0;
+bool window2Sensor = 0, roomSensor = 0, kitchenSensor = 0;
+bool garageSensor = 0, hallSensor = 0, alarm = 0;
 
 void setup()
 {
-    pinMode(ON_BUTTON_PIN,INPUT_PULLUP);
+    pinMode(ON_BUTTON_PIN, INPUT_PULLUP);
     pinMode(BAR_SENSOR_PIN, INPUT_PULLUP);
     pinMode(WINDOW1_SENSOR_PIN, INPUT_PULLUP);
     pinMode(WINDOW2_SENSOR_PIN, INPUT_PULLUP);
@@ -22,32 +22,36 @@ void setup()
     pinMode(KITCHEN_SENSOR_PIN, INPUT_PULLUP);
     pinMode(GARAGE_SENSOR_PIN, INPUT_PULLUP);
     pinMode(HALL_SENSOR_PIN, INPUT_PULLUP);
-    pinMode(ALARM_PIN,OUTPUT);
+    pinMode(ALARM_PIN, OUTPUT);  
 }
 
-void loop(){
-
-    onButton = digitalRead(ON_BUTTON_PIN);
-    bar_sensor = digitalRead(BAR_SENSOR_PIN);
-    window1_sensor = digitalRead(WINDOW1_SENSOR_PIN);
-    window2_sensor = digitalRead(WINDOW2_SENSOR_PIN);
-    room_sensor = digitalRead(ROOM_SENSOR_PIN);
-    kitchen_sensor = digitalRead(KITCHEN_SENSOR_PIN);
-    garage_sensor = digitalRead(GARAGE_SENSOR_PIN);
-    hall_sensor = digitalRead(HALL_SENSOR_PIN);
+void loop()
+{
+    //I/O's:
+    onButton = !digitalRead(ON_BUTTON_PIN);
+    barSensor = !digitalRead(BAR_SENSOR_PIN);    
+    window1Sensor = !digitalRead(WINDOW1_SENSOR_PIN);
+    window2Sensor = !digitalRead(WINDOW2_SENSOR_PIN);
+    roomSensor = !digitalRead(ROOM_SENSOR_PIN);
+    kitchenSensor = !digitalRead(KITCHEN_SENSOR_PIN);
+    garageSensor = !digitalRead(GARAGE_SENSOR_PIN);
+    hallSensor = !digitalRead(HALL_SENSOR_PIN);    
     digitalWrite(ALARM_PIN, alarm);
 
-    if(onButton == 1){
-        if(!bar_sensor || !window1_sensor || !window2_sensor || room_sensor || kitchen_sensor || garage_sensor || hall_sensor){
+
+    if(onButton){
+        if( !barSensor || !window1Sensor || !window2Sensor || 
+            roomSensor || kitchenSensor || hallSensor || garageSensor ){
+
             alarm = 1;
         }
         else{
             alarm = 0;
         }
-
     }
-    //Se o botão de ligar não estiver pressionado:
+    //SE O BOTÃO LIGA NÃO ESTIVER ACIONADO:
     else{
         alarm = 0;
     }
+
 }
