@@ -45,9 +45,7 @@ void loop()
 
             alarm = 1;
         }
-        else{
-            alarm = 0;
-        }
+        
     }
     //SE O BOTÃO LIGA NÃO ESTIVER ACIONADO:
     else{
