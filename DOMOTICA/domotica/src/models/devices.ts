@@ -1,16 +1,12 @@
 
-export type Device = {
-    nome: string,
-    state: boolean,
-
+export class Device {
+    nome: string = "";
+    state: boolean = false;
+    color: string = "#827d85";
 }
 
-export type Places ={
-    nome: string,
-    devices: Array<Device>
+export class Places {
+    nome: string = "";
+    devices: Array<Device> = []
 }
 
-testeType: Places ={
-    nome: "Cozinha",
-    devices: {}
-}
