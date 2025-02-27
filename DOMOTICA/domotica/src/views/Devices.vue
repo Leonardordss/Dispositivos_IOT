@@ -1,37 +1,34 @@
 <script setup lang="ts">
 
-import {Environment} from '@/models/devices';
+import {Device, Environment} from '@/models/devices';
 import {reactive, ref} from 'vue';
 
-const environments = reactive(Array<Environment>);
+const environments: Array<Environment> = reactive([]);
 
+const ar: Device = reactive(new Device());
+ar.name = 'Ar condicionado';
+ar.color = '#3266a8';
 
-const sala: Environment = reactive({
-    name: 'Sala de Estar',
-    devices: [
-        {
-            name:'Ar condicionado',
-            state: false,
-            color: '#3266a8'
-        },
-        {
-            name:'Smart TV',
-            state: true,
-            color: '#a5c949'
-        },
-        {
-            name:'Iluminação',
-            state: false,
-            color: '#4d0d75'
-        },
-    ]
-})
+const tv: Device = reactive(new Device());
+tv.name ='Smart TV';
+tv.color = '#a5c949';
+tv.state = true;
+
+const iluminacao: Device = reactive(new Device());
+iluminacao.name = 'Iluminação';
+iluminacao.color = '#4d0d75';
+
+const sala: Environment = reactive(new Environment());
+sala.name = 'Sala';
+sala.devices = [ar,tv,iluminacao];
+
+environments.push(sala);
 
 </script>
 
 <template>
     <h1>Devices page!!!!</h1>
-    {{ sala }}
+    {{ environments }}
     
 </template>
 
