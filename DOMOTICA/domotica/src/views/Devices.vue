@@ -27,11 +27,26 @@ environments.push(sala);
 </script>
 
 <template>
-    <h1>Devices page!!!!</h1>
-    {{ environments }}
+    <main class="flex flex-column text-center justify-content align-items-center">
+        <h1>Devices page!!!!</h1>
+        <section class="environments flex flex-column">
+
+
+        </section>
+    </main>
+    
     
 </template>
 
 <style scoped lang="scss">
+main{
+    width: 100vw;
+    min-height: 100vh;
+    .environments{
+        width: 98vw;
+        min-height: 95vh;
+        background-color: rgb(206, 160, 160);
+    }
+}
 
 </style>
