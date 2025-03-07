@@ -1,5 +1,6 @@
 <script setup lang="ts">
 
+import DeviceComponent from '@/components/DeviceComponent.vue';
 import {Device, Environment} from '@/models/devices';
 import {reactive, ref} from 'vue';
 
@@ -36,11 +37,7 @@ environments.push(sala);
             <div class="device" v-for="(environment, env_id) in environments" :key="env_id">
                 <h3>{{ environment.name }}</h3>
                 <div v-for="(device, dev_id) in environment.devices" :key="dev_id">
-                    <section>
-                        <h5>{{ device.name }}</h5>
-                        <button>ON</button>
-                        <button>OFF</button>
-                    </section>
+                    <DeviceComponent :device="device"/>
                 </div>
             </div>
         </section>
