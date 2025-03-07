@@ -1,6 +1,7 @@
 <script setup lang="ts">
 
 import DeviceComponent from '@/components/DeviceComponent.vue';
+import EnvironmentComponent from '@/components/EnvironmentComponent.vue';
 import {Device, Environment} from '@/models/devices';
 import {reactive, ref} from 'vue';
 
@@ -35,7 +36,7 @@ environments.push(sala);
         <h1>Devices page!!!!</h1>
         <section class="environments flex flex-column border-round-sm">
             <div class="device" v-for="(environment, env_id) in environments" :key="env_id">
-               
+               <EnvironmentComponent :environment="environment"/>
             </div>
         </section>
     </main>
