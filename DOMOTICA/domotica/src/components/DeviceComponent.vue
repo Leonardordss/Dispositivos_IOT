@@ -5,6 +5,10 @@ const props = defineProps({
     device: { type: Device, required: true }
 });
 
+const changeDevice = (newState: boolean)=> {
+    props.device.state = newState;
+}
+
 
 
 </script>
@@ -17,8 +21,8 @@ const props = defineProps({
         <span class=" icons material-icons-round">{{ props.device.icon }}</span>
 
         <div class="flex flex-row">
-            <button class="device-buttons on-button mr-1">ON</button>
-            <button class="device-buttons off-button">OFF</button>
+            <button class="device-buttons on-button mr-1" @click="changeDevice(true)">ON</button>
+            <button class="device-buttons off-button" @click="changeDevice(false)">OFF</button>
         </div>
         
     </section>
@@ -32,6 +36,7 @@ const props = defineProps({
 section{
     
     border: 0.5px solid black;
+    background-color: #62dac8;
     width: 10rem;
     height: 6rem;
     margin: 0.5rem;

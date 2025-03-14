@@ -23,11 +23,28 @@ iluminacao.name = 'Iluminação';
 iluminacao.color = '#4d0d75';
 iluminacao.icon = 'light';
 
+const tomada: Device = reactive(new Device());
+tomada.name = 'Tomada Inteligente';
+tomada.icon = 'power';
+
+const cafeteira: Device = reactive(new Device());
+cafeteira.name = 'Cafeteira Wi-fi';
+cafeteira.icon = 'coffee_maker';
+
+const liquidificador: Device = reactive(new Device());
+liquidificador.name = 'Liquidificador Wi-fi';
+liquidificador.icon = 'blender';
+
 const sala: Environment = reactive(new Environment());
 sala.name = 'Sala';
-sala.devices = [ar,tv,iluminacao];
+sala.devices = [ar,tv,iluminacao,tomada];
+
+const cozinha: Environment = reactive(new Environment());
+cozinha.name = 'Cozinha';
+cozinha.devices = [cafeteira,liquidificador];
 
 environments.push(sala);
+environments.push(cozinha);
 
 </script>
 
