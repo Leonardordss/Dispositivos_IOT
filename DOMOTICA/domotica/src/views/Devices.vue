@@ -50,7 +50,7 @@ environments.push(cozinha);
 
 <template>
     <main class="flex flex-column text-center justify-content align-items-center">
-        <h1>Devices page!!!!</h1>
+        <h1>Seus Dispositivos 💻</h1>
         <section class="environments flex flex-column border-round-sm">
             <div class="device" v-for="(environment, env_id) in environments" :key="env_id">
                <EnvironmentComponent :environment="environment"/>

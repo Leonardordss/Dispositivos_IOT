@@ -36,7 +36,7 @@ const changeDevice = (newState: boolean)=> {
 section{
     
     border: 0.5px solid black;
-    background-color: #62dac8;
+    background-color: #00FF7F;
     width: 10rem;
     height: 6rem;
     margin: 0.5rem;
