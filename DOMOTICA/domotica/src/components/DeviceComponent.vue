@@ -2,7 +2,8 @@
 import {Device} from '@/models/devices';
 
 const props = defineProps({
-    device: { type: Device, required: true }
+    device: { type: Device, required: true },
+    showButtons: { type: Boolean, default: true }
 });
 
 const changeDevice = (newState: boolean)=> {
@@ -17,14 +18,18 @@ const changeDevice = (newState: boolean)=> {
 <template>
     <section
     :class="`flex flex-column text-center align-items-center justify-content-center device-${props.device.state}`">
+    <div v-if="!props.showButtons" class="remove-container flex mt-2 justify-content-end align-items-center">
+        <span class="icons material-icons-round">delete</span>
+    </div>
+    <div>
         <h5>{{props.device.name }}</h5>
         <span class=" icons material-icons-round">{{ props.device.icon }}</span>
 
-        <div class="flex flex-row">
+        <div class="flex flex-row" v-if="props.showButtons">
             <button class="device-buttons on-button mr-1" @click="changeDevice(true)">ON</button>
             <button class="device-buttons off-button" @click="changeDevice(false)">OFF</button>
         </div>
-        
+    </div>     
     </section>
 
 
@@ -35,15 +40,28 @@ const changeDevice = (newState: boolean)=> {
 
 section{
     
-    border: 0.5px solid black;
+    border: 1px solid gray;
     background-color: #00FF7F;
     width: 10rem;
-    height: 6rem;
+    height: 7.5rem;
     margin: 0.5rem;
   
     .icons{
         width: 2rem;
         margin: 0.5rem;
+    }
+
+    .remove-container{
+        width: 100%;
+        height: 1rem;
+        span{
+            font-size: 0.85rem;
+            cursor: pointer;
+            &:hover{
+                transform: scale(1.25);
+                color: rgb(87, 18, 18);
+            }
+        }
     }
 }
 
