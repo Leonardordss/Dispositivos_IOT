@@ -11,6 +11,7 @@ const saveNewEnv = ()=> {
     useDeviceRepository().addEnvironment(newEnv);
     //newEnv.name = '';
     //newEnv.devices = [];
+    //
 }
 
 const environments: Array<Environment> = reactive([]);
